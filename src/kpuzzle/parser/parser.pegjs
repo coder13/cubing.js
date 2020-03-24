@@ -40,9 +40,15 @@ ORBITS
   // TODO: Can we make sure orbits are added in order? (Most JS engines preserve map order.)
   / orbit:ORBIT { const orbits = {}; orbits[orbit[0]] = orbit[1]; return orbits;  }
 
-NEWLINE = "\n"
-NEWLINES = "\n"+
-OPTIONAL_NEWLINES = "\n"*
+COMMENT_SEGMENT = ("#"[^\n]*"\n")+
+
+NEWLINE = COMMENT_SEGMENT
+        / "\n" COMMENT_SEGMENT
+        / "\n"
+NEWLINES = NEWLINE
+         / NEWLINE NEWLINES
+OPTIONAL_NEWLINES = NEWLINES
+                  / ""
 
 NUMBERS = num:NUMBER SPACE nums:NUMBERS { return [num].concat(nums); }
         / num:NUMBER { return [num]; }
@@ -67,6 +73,6 @@ MOVE = "Move" SPACE identifier:IDENTIFIER NEWLINE definitions:DEFINITIONS NEWLIN
 MOVES = move:MOVE NEWLINES moves:MOVES { moves[move[0]] = move[1]; return moves; }
       / move:MOVE { const moves = {}; moves[move[0]] = move[1]; return moves; }
 
-DEFINITION_FILE = name:NAME NEWLINES orbits:ORBITS NEWLINES start_pieces:START_PIECES NEWLINES moves:MOVES OPTIONAL_NEWLINES {
+DEFINITION_FILE = OPTIONAL_NEWLINES name:NAME NEWLINES orbits:ORBITS NEWLINES start_pieces:START_PIECES NEWLINES moves:MOVES OPTIONAL_NEWLINES {
                     return {name: name, orbits: orbits, moves: moves, startPieces: start_pieces};
                   }
