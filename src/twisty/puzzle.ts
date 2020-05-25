@@ -8,6 +8,7 @@ import {
   Puzzles,
   stateForBlockMove,
   Transformation,
+  Order,
 } from "../kpuzzle";
 
 export type MoveName = string;
@@ -43,6 +44,7 @@ export abstract class Puzzle {
   public abstract stateFromMove(blockMove: BlockMove): State<Puzzle>;
   public abstract identity(): State<Puzzle>;
   public abstract equivalent(s1: State<Puzzle>, s2: State<Puzzle>): boolean;
+  public abstract order(s: State<Puzzle>): number;
 }
 
 interface KSolvePuzzleState extends Transformation, State<KSolvePuzzle> {}
@@ -81,6 +83,9 @@ export class KSolvePuzzle extends Puzzle {
   }
   public equivalent(s1: KSolvePuzzleState, s2: KSolvePuzzleState): boolean {
     return EquivalentStates(this.definition, s1, s2);
+  }
+  public order(s: KSolvePuzzleState): number {
+    return Order(this.definition, s);
   }
 }
 

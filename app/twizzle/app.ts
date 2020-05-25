@@ -165,6 +165,16 @@ function trimEq(a: string, b: string): boolean {
   return a.trim() === b.trim();
 }
 
+function updateMoveCount(): void {
+  const curs = twisty.experimentalGetCursor();
+  const len = curs.countMoves();
+  const ord = curs.getOrder();
+  const mc = document.getElementById("movecount");
+  if (mc) {
+    mc.innerText = "Moves: " + len + " order: " + ord;
+  }
+}
+
 function setAlgo(str: string, writeback: boolean): void {
   let seq: Sequence = algparse("");
   const elem = document.querySelector("#custom-example");
@@ -223,6 +233,7 @@ function setAlgo(str: string, writeback: boolean): void {
       seq = algparse(str);
       str = algToString(seq);
       twisty.experimentalSetAlg(seq);
+      updateMoveCount();
       setURLParams({ alg: seq });
     } catch (e) {
       algoinput.style.backgroundColor = "#ff8080";
@@ -554,6 +565,7 @@ function addMove(move: BlockMove): void {
     lastalgo = algToString(newAlg);
     twisty.experimentalAddMove(move);
     algoinput.value = lastalgo;
+    updateMoveCount();
     setURLParams({ alg: newAlg });
   }
 }

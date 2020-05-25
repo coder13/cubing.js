@@ -702,6 +702,16 @@ export class Cursor<P extends Puzzle> {
     return this.delta(-duration, stopAtStartOfMove);
   }
 
+  public countMoves(): number {
+    return this.indexer.numMoves();
+  }
+
+  public getOrder(): number {
+    return this.puzzle.order(
+      this.indexer.transformAtIndex(this.indexer.numMoves()),
+    );
+  }
+
   private setMoves(alg: Sequence): void {
     this.lastMoveData = undefined;
     if (USE_SIMPLE_ALGORITHM_INDEXER) {

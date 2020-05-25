@@ -116,7 +116,9 @@ export function Order(def: KPuzzleDefinition, t: Transformation): number {
             break;
           }
         }
+        om = om % oDef.orientations;
         if (om !== 0) {
+          console.log("pm " + pm + " om " + om + " ori " + oDef.orientations);
           pm = (pm * oDef.orientations) / gcd(oDef.orientations, om);
         }
         r = (r * pm) / gcd(r, pm);
