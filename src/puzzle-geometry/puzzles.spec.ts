@@ -1,6 +1,6 @@
 import { getPuzzleGeometryByDesc } from "./index";
 import { Puzzles } from "./Puzzles";
-import { KPuzzleDefinition } from "../kpuzzle";
+import { KPuzzleDefinition, Transformation, Order } from "../kpuzzle";
 import { parse } from "../alg";
 import { TreeAlgorithmIndexer, KSolvePuzzle } from "../twisty";
 /**
@@ -95,7 +95,9 @@ describe("Quat", () => {
         sep +
         Object.getOwnPropertyNames(kpuzzledef.orbits).length +
         sep +
-        Object.getOwnPropertyNames(kpuzzledef.moves).length;
+        Object.getOwnPropertyNames(kpuzzledef.moves).length +
+        sep +
+        o;
       expect(dat).toBe(expectedData[name]);
     }
   });
