@@ -1,8 +1,8 @@
 import { getPuzzleGeometryByDesc } from "./index";
 import { Puzzles } from "./Puzzles";
 import { KPuzzleDefinition } from "../kpuzzle";
-// import { parse } from "../alg";
-// import { TreeAlgorithmIndexer, KSolvePuzzle } from "../twisty";
+import { parse } from "../alg";
+import { TreeAlgorithmIndexer, KSolvePuzzle } from "../twisty";
 /**
  *   Test basic things about puzzles created by puzzle
  *   geometry.  We check stickers per face, face count
@@ -75,7 +75,7 @@ describe("Quat", () => {
       /*
        *   I want to do this too, but when I add this code and its
        *   imports, I get an ambiguity in Stats module import.
-       *
+       */
       const seq = Object.getOwnPropertyNames(kpuzzledef.moves).sort().join(" ");
       const algo = parse(seq);
       const ksp = new KSolvePuzzle(kpuzzledef);
@@ -83,7 +83,7 @@ describe("Quat", () => {
       const tr = tai.transformAtIndex(tai.numMoves());
       console.log(tr);
       const o = Order(kpuzzledef, tr as Transformation);
-       */
+      /* */
       const dat =
         name +
         sep +
