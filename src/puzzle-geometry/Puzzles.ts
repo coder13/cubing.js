@@ -1,6 +1,6 @@
 export type PuzzleDescriptionString = string;
 
-export const Puzzles: { [name: string]: PuzzleDescriptionString } = {
+export const Puzzles: Record<string, PuzzleDescriptionString> = {
   "2x2x2": "c f 0",
   "3x3x3": "c f 0.333333333333333",
   "4x4x4": "c f 0.5 f 0",

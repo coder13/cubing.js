@@ -1709,6 +1709,7 @@ export class PuzzleGeometry {
       return this.header("# ") + od.toKsolve(name, fortwisty).join("\n");
     }
   }
+
   public writekpuzzle(fortwisty: boolean = true): any {
     return this.getOrbitsDef(fortwisty).toKpuzzle();
   }
