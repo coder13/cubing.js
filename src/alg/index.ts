@@ -39,7 +39,7 @@ export {
   blockMoveToString,
 } from "./traversal";
 
-export { Example } from "./example";
+// export { Example } from "./example";
 
 export { AlgJSON, fromJSON } from "./json";
 
