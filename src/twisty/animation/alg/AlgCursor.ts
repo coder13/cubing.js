@@ -9,12 +9,13 @@
 import { Sequence } from "../../../alg";
 import { KPuzzleDefinition } from "../../../kpuzzle";
 import { KPuzzleWrapper } from "../../3D/puzzles/KPuzzleWrapper";
+import { Timeline, TimelineTimestampListener } from "../Timeline";
 import {
+  Direction,
+  directionScalar,
+  PuzzlePosition,
   MillisecondTimestamp,
-  Timeline,
-  TimelineTimestampListener,
-} from "../Timeline";
-import { Direction, directionScalar, PuzzlePosition } from "./CursorTypes";
+} from "./CursorTypes";
 import { TreeAlgIndexer } from "./TreeAlgIndexer";
 // end of imports
 

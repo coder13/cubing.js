@@ -3,13 +3,16 @@ import {
   TimelineActionEvent,
   TimestampLocationType,
   TimelineAction,
-  MillisecondTimestamp,
 } from "../../animation/Timeline";
 import { ManagedCustomElement } from "../ManagedCustomElement";
 import { buttonCSS, buttonGridCSS } from "./buttons.css";
 import { TwistyControlElement } from "./TwistyControlElement.ts";
 import { TimeRange } from "../../animation/alg/AlgCursor";
-import { Direction, BoundaryType } from "../../animation/alg/CursorTypes";
+import {
+  Direction,
+  BoundaryType,
+  MillisecondTimestamp,
+} from "../../animation/alg/CursorTypes";
 
 type TimelineCommand =
   | "fullscreen"
