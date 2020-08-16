@@ -3,16 +3,14 @@
   "version": "0.12.1",
   "description": "A collection of Javascript cubing libraries.",
   "author": "The js.cubing.net team",
-  "main": "dist/cjs/cubing.js",
-  "module": "dist/esm/cubing.js",
-  "types": "dist/cjs/src/cubing/index.d.ts",
+  "main": "dist/cubing.js",
+  "types": "dist/cubing.d.ts",
   "license": "GPL-3.0-or-later",
   "repository": "github:cubing/cubing.js",
   "dependencies": {
     "@parcel/transformer-raw": "^2.0.0-alpha.3",
     "@types/resize-observer-browser": "^0.1.3",
-    "@types/web-bluetooth": "0.0.4",
-    "parcel": "^2.0.0-nightly.360",
+    "parcel": "^2.0.0-nightly.368",
     "regenerator-runtime": "^0.13.5",
     "three": "^0.118.3"
   },
@@ -24,6 +22,7 @@
     "@babel/plugin-proposal-private-methods": "^7.10.4",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-typescript": "^7.10.4",
+    "@parcel/transformer-typescript-tsc": "^2.0.0-alpha.3",
     "@rollup/plugin-json": "^4.0.2",
     "@types/jest": "^24.9.1",
     "@typescript-eslint/eslint-plugin": "^2.32.0",
@@ -134,5 +133,11 @@
     "trailingComma": "all",
     "tabWidth": 2,
     "quoteProps": "consistent"
+  },
+  "targets": {
+    "main": {
+      "isLibrary": true,
+      "outputFormat": "esmodule"
+    }
   }
 }

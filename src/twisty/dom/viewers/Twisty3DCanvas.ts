@@ -48,7 +48,9 @@ export class Twisty3DCanvas extends ManagedCustomElement
     this.canvas = this.renderer.domElement;
     this.addElement(this.canvas);
 
-    const observer = new window.ResizeObserver(this.onResize.bind(this));
+    const observer = new (window as any).ResizeObserver(
+      this.onResize.bind(this),
+    );
     observer.observe(this);
   }
 

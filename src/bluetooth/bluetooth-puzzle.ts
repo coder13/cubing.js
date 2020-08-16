@@ -2,6 +2,10 @@ import { BlockMove } from "../alg";
 import { Transformation } from "../kpuzzle";
 import { BasicRotationTransformer, StreamTransformer } from "./transformer";
 import { Quaternion } from "three";
+import {
+  BluetoothRequestDeviceFilter,
+  BluetoothServiceUUID,
+} from "./web-bluetooth";
 
 /******** BluetoothPuzzle ********/
 

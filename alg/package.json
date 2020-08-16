@@ -1,7 +1,14 @@
 {
   "name": "alg",
   "version": "0.10.0",
-  "main": "../dist/cjs/alg.js",
-  "module": "../dist/esm/alg.js",
-  "types": "../dist/esm/src/alg/index.d.ts"
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "build": "npx parcel build ../src/alg/index.ts"
+  },
+  "targets": {
+    "main": {
+      "outputFormat": "esmodule"
+    }
+  }
 }

@@ -2,6 +2,10 @@ import { Quaternion } from "three";
 import { BareBlockMove, BlockMove, Sequence } from "../alg";
 import { BluetoothConfig, BluetoothPuzzle } from "./bluetooth-puzzle";
 import { debugLog } from "./debug";
+import {
+  BluetoothRemoteGATTServer,
+  BluetoothRemoteGATTCharacteristic,
+} from "./web-bluetooth";
 
 const UUIDs = {
   goCubeService: "6e400001-b5a3-f393-e0a9-e50e24dcca9e",

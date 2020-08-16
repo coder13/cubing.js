@@ -8,6 +8,10 @@ import {
   PuzzleState,
 } from "./bluetooth-puzzle";
 import { debugLog } from "./debug";
+import {
+  BluetoothRemoteGATTServer,
+  BluetoothRemoteGATTCharacteristic,
+} from "./web-bluetooth";
 
 const MESSAGE_LENGTH = 20;
 

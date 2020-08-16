@@ -10,6 +10,11 @@ import {
 } from "./bluetooth-puzzle";
 import { debugLog } from "./debug";
 import { importKey, unsafeDecryptBlock } from "./unsafe-raw-aes";
+import {
+  BluetoothRemoteGATTCharacteristic,
+  BluetoothRemoteGATTServer,
+  BluetoothRemoteGATTService,
+} from "./web-bluetooth";
 
 // This needs to be short enough to capture 6 moves (OBQTM).
 const DEFAULT_INTERVAL_MS = 150;

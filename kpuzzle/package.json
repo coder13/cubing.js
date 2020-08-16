@@ -1,7 +1,15 @@
 {
   "name": "kpuzzle",
   "version": "0.10.0",
-  "main": "../dist/cjs/kpuzzle.js",
-  "module": "../dist/esm/kpuzzle.js",
-  "types": "../dist/esm/src/kpuzzle/index.d.ts"
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "build": "npx parcel build ../src/cubing/index.ts"
+  },
+  "targets": {
+    "main": {
+      "outputFormat": "esmodule"
+    }
+  }
 }

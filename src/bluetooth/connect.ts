@@ -3,6 +3,12 @@ import { debugLog } from "./debug";
 import { ganConfig, GanCube } from "./gan";
 import { giiKERConfig, GiiKERCube } from "./giiker";
 import { GoCube, goCubeConfig } from "./gocube";
+import {
+  BluetoothServiceUUID,
+  BluetoothRequestDeviceFilter,
+  RequestDeviceOptions,
+  Navigator,
+} from "./web-bluetooth";
 
 /******** requestOptions ********/
 
@@ -66,7 +72,7 @@ export async function connect(
       );
       acceptAllDevices = true;
     }
-    device = await navigator.bluetooth.requestDevice(
+    device = await ((navigator as any) as Navigator).bluetooth.requestDevice(
       requestOptions(acceptAllDevices),
     );
     consecutiveFailures = 0;
